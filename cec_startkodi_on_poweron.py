@@ -29,7 +29,7 @@
 # OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 # OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
-# v1.0.0
+# v1.0.1
 
 import cec
 print(cec)
@@ -102,8 +102,7 @@ class CecStartKodiOnPowerOn:
         return 0
 
     def attach2tv(self):
-        '''Entry point of the script, it exits only if no CEC-adapter has been found.
-        '''
+        """Entry point of the script, it exits only if no CEC-adapter has been found"""
         adapter = self.detectadapter()
         if adapter:
             self.tvactive.clear()
@@ -124,8 +123,7 @@ class CecStartKodiOnPowerOn:
             self.logger.info('No CEC adapter found')
 
     def detectadapter(self):
-        '''Loop until an adapter found, then return the first on the list
-        '''
+        """Loop until an adapter found, then return the first on the list"""
         # search for adapters
         while self.go():
             adapters = self.lib.DetectAdapters()
@@ -156,8 +154,7 @@ class CecStartKodiOnPowerOn:
         return False
 
     def ispoweron(self):
-        '''Retrieve a power status of the attached TV
-        '''
+        """Retrieve a power status of the attached TV"""
         pwrstatus = self.lib.GetDevicePowerStatus(cec.CECDEVICE_TV)
         return pwrstatus == cec.CEC_POWER_STATUS_IN_TRANSITION_STANDBY_TO_ON or pwrstatus == cec.CEC_POWER_STATUS_ON
 
@@ -172,8 +169,7 @@ class CecStartKodiOnPowerOn:
             self.keepgoing = False
 
     def go(self):
-        '''Here I could e.g. read a flag file and stop execution of the script
-        '''
+        """Here I could e.g. read a flag file and stop execution of the script"""
         return self.keepgoing
 
 if __name__ == '__main__':
