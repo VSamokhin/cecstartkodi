@@ -29,7 +29,7 @@
 # OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 # OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
-# v1.0.1
+# v1.0.2
 
 import cec
 print(cec)
@@ -48,10 +48,10 @@ access to the adapter in a loop. After Kodi exits, the script grabs CEC-adapter
 and begins waiting for any broadcast command where TV specified as the source (0)
 to start Kodi upon again. The routine is supposed to run forever, the only exit trigger
 is a non-zero return value of the command to start Kodi.
-For the routine to work properly, Kodi shall be set up to exit upon TV is being switched off,
-a corresponding setting resides under "System -> Input -> Peripherals -> CEC Adpater" preferences of Kodi.
-A command to start Kodi depends on the actual setup, in my case Kodi runs as the only app in Openbox's session.
-Start the script when either TV is on and Kodi already running or TV is off and Kodi stopped.
+For the routine to work properly, Kodi shall be configured to exit after TV has been switched off,
+the corresponding setting resides under the "System -> Input -> Peripherals -> CEC Adpater" preferences of Kodi.
+A command to start Kodi depends on the actual setup, in my case Kodi runs as the only app in an Openbox session.
+Execute this script either when TV is on and Kodi is already running or when TV is off and Kodi stopped
 '''
 class CecStartKodiOnPowerOn:
     keepgoing = True
